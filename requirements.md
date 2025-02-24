@@ -1,10 +1,10 @@
 ## Functional:
-1. User groups:
+### User groups:
 - Admin
 - Registered users
 - Guests
 
-system:
+### System:
 3. Authentication system: 
   - company (reg, login, logout) + admin (login -> control panel)
   - Forget account
@@ -15,15 +15,15 @@ system:
 - applicants able to view job desc, cannot view employer contact
 - application send to system, not directly to employer
   
-Applicant
+### Applicant
 7. Application submission: form + upload resume (pdf) -> system store 
 8. Download job post
 
-Employer
+### Employer
 10. Job position detail: job description (deadline, location,...)
 11. Document upload: upload job desc pdf
 
-Admin
+### Admin
 12. Admin Features: add new job positions manually
 6. Job post approval: approve or EDIT job posts by employers
 
