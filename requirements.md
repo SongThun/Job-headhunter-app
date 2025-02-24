@@ -5,27 +5,27 @@
 - Guests
 
 ### System:
-3. Authentication system: 
+- Authentication system: 
   - company (reg, login, logout) + admin (login -> control panel)
   - Forget account
-4. Job listings: display list of available job -> click: full desc
-5. Job post storage:
-6. Resume storage for agency
-8. Privacy protection: 
-- applicants able to view job desc, cannot view employer contact
-- application send to system, not directly to employer
+- Job listings: display list of available job -> click: full desc
+- Job post storage:
+- Resume storage for agency:
+- Privacy protection: 
+  - applicants able to view job desc, cannot view employer contact
+  - application send to system, not directly to employer
   
 ### Applicant
-7. Application submission: form + upload resume (pdf) -> system store 
-8. Download job post
+- Application submission: form + upload resume (pdf) -> system store
+- Download job post
 
 ### Employer
-10. Job position detail: job description (deadline, location,...)
-11. Document upload: upload job desc pdf
+- Job position detail: job description (deadline, location,...)
+- Document upload: upload job desc pdf
 
 ### Admin
-12. Admin Features: add new job positions manually
-6. Job post approval: approve or EDIT job posts by employers
+- Admin Features: add new job positions manually
+- Job post approval: approve or EDIT job posts by employers
 
 ## Non-functional:
 
