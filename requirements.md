@@ -34,8 +34,9 @@ Admin
 
 Home
 Authenticate: register, sign in
-For Guest:
-- View job listing + button -> click: detail -> view company profile
+
+### For Guest:
+- View job listing + button -> click: detail (no company info)
 - Button for application -> form (fullname, phone, email, resume upload button)
     - pop up ensure success or fail (all field filled, valid email)
     - system store application
@@ -44,9 +45,10 @@ For Guest:
    - based on email, if the submission already checked, not allow resubmission
 - close window
 
-For Company:
+### For Company:
 - Register:
   - form () -> success -> (tutorial) -> dashboard
+- Login
 - Dashboard:
     - view job listing (without submit) -> display applicants number, number of verified
                  - view applications button -> list of verified (link to application) - view full application | add to candidate list
@@ -63,9 +65,23 @@ For Company:
 - Noti button (traffic light)
   - Green noti: approved
   - Yellow noti: number of new applicants
-  - Red noti: unapproved
-- Profile:
+  - Red noti: unapproved  
+- Profile: Avatar, email, contact, location, description, approved job post,...
   - view, edit
-For Admin:
 
-
+### For Admin:
+- Login:
+- Add, edit, remove company account
+- Need to approved job posts (group by company)
+   - Number of new job posts
+   - button to view job post desc ->
+   -   edit -> form
+   -   approved / unapproved + reason (form)
+- On demand job posts
+   - Number of new applications 
+   - button to view new applications
+       -> list of new applications -> click to view application -> approved/ unapproved + reason (form)
+- Button add job -> click: form (company info, position ID, title, job description (upload/text), required degrees(options/text), desired skills (options/text), deadline, location, candidate amount)   
+                          - check valid
+                          - pop up are you sure?
+                          - success
