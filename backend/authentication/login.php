@@ -4,6 +4,11 @@
 
 // Example: Display an error message if needed
 $errorMessage = "";
+sleep(5);
+if (isset($_COOKIE) && $_COOKIE['state']=='Logged In')
+{
+    header("Location: ../views/view_assign.php");
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // In a real scenario, you'd check login credentials here.
     // For this example, we'll simulate an error.
