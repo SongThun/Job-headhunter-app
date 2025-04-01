@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/fdab99180b.js" crossorigin="anonymous"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    :root {
+    --dark-gray: #3C3744;
+    --deep-blue: #090C9B;
+    --blue: #3D52D5;
+    --light-blue: #B4C5E4;
+    --off-white: #FBFFF1;
+    }
+    html, body{
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      /* overflow-y: hidden; */
+      height: 100vh;
+      width: 100vw;
+    }
+
+    header{
+      top: 0;
+      margin: 0.5% 1%;
+      position: sticky;
+      z-index: 1000;
+    }
+    *{
+      text-decoration: none;
+    }
+    .navbar{
+      display: grid;
+      grid-template-columns: 35% 55% 30%;
+      gap: 10px;
+      padding: 0.8rem 3rem 1rem 2rem;
+      border-style: solid;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      align-items: center;
+    }
+    .navbar .logo{
+      display: block;
+    }
+    .navbar .logo a,
+    .navbar .list a{
+      color: black;
+    }
+    .navbar .list{
+      display: flex;
+      gap: 8%;
+    }
+    .navbar .sign-up-in{
+      display: flex;
+      gap: 3%;
+    }
+    .nav-btn-sign-in,
+    .sub-list{
+      border:none;
+      background: none;
+      outline: none;
+      cursor: pointer;
+    }
+    .nav-btn-sign-up{
+      height: 2.3rem;
+      width: 5rem;
+      border-radius: 10px;
+      border: none;
+      box-sizing: border-box;
+      background: var(--blue);
+      color: white;
+      cursor: pointer;
+    }
+
+    .active-list{
+      height: 2.3rem;
+      min-width: 5rem;
+      width: max-content;
+      border-radius: 10px;
+      border: none;
+      box-sizing: border-box;
+      background: var(--blue);
+      color: white;
+      cursor: pointer;
+    }
+
+    main{
+      flex: 1;
+    }
+
+    footer{
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+  </style>
+  <header>
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <div><a href="" style="cursor: default;"><h2 style="margin: 0; max-width: fit-content;cursor: pointer;">JOB</h2></a></div>
+          <div><a href="" style="cursor: default;"><h2 style="margin: 0; max-width: fit-content;cursor: pointer;">PORTAL</h2></a></div>
+        </div>
+        <div class="list">
+          <button href="" class="sub-list" data-links="">Home</button>
+          <button href="" class="sub-list" data-links="jobposts.html">Job Listing</button>
+          <button href="" class="sub-list" data-links="">Help</button>
+          <button href="" class="sub-list" data-links="">Contact</button>
+        </div>
+        <div class="sign-up-in">
+          <button class="nav-btn-sign-in">Sign in</button>
+          <button class="nav-btn-sign-up">Sign up</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <style>
+    .container-search{
+      top: 7rem;
+      position: sticky;
+      display: grid;
+      grid-template-columns: 65% 25%;
+      align-items: center;
+      justify-content: center;
+      /* margin-right: 1rem; */
+      margin-top: 1.5rem;
+      
+    }
+    .right-box{
+      display: grid;
+      grid-template-columns: 40% 70%;
+    }
+    .search-box{
+      /* padding-left: 3rem; */
+      align-items: center;
+      position: relative;
+    }
+    .search-box input{
+      width: 95%;
+      height: 3rem;
+      font-size: 1.3rem;
+      padding-left: 3rem;
+      border-radius: 4rem;
+      /* outline: none; */
+      border-color: var(--blue);
+      border-top-color: var(--blue);
+    }
+    .search-box i{
+      font-size: 1.5rem;
+      position: absolute;
+      /* left: -15px; */
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 1rem;
+    }
+    .filter-box button{
+      background: none;
+      border:none;
+      outline: none;
+    }
+    .filter-box button i{
+      font-size: 2rem;
+      color: var(--blue);
+      margin-left: 5rem;
+    }
+    .sort-by-box{
+      display: flex;
+      flex-wrap:nowrap;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-left: 1rem;
+    }
+    .sort-by-box select{
+      font-size: 1.3rem;
+      border: none;
+    }
+
+  .container-list-job {
+    /* top: 1rem; */
+    position: relative;
+    width: fit-content;
+    min-width: 85%;
+    height: auto;
+    /* height: calc(100vh - 26rem); */
+    /* max-height: calc(100vh - 26rem); */
+    min-height: calc(100vh - 19rem);
+    /* min-height: calc(100vh - 17.5rem); */
+    padding: 2rem 4rem 1rem 4rem;
+    display: grid;
+    /* grid-template-columns: repeat(2, minmax(2.3rem, 1fr)); */
+    grid-template-columns: repeat(2, max-content);
+    grid-auto-rows: min-content;
+    row-gap: 2rem; 
+    column-gap: 2rem; 
+    align-items: start;
+    justify-content: space-between;
+    margin-left: 3%;
+  }
+
+  .container-list-job::before {
+      content: ""; /* Creates an empty pseudo-element */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../images/job_portal_bg_.jpg") no-repeat center center;
+      background-size: cover;
+      opacity: 0.25; /* Apply opacity only to the background */
+      z-index: -1; /* Places it behind the content */
+  }
+
+  .container-job-card{
+    background: white;
+    display: flex;
+    width: 37rem;
+    height: 5.5rem;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 1px 2px 10px rgba(106, 97, 97, 0.804);
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .container-job-card-left{
+    flex-grow: 1;
+  }
+  .containter-job-title h2{
+    margin: 0;
+    padding: 0 0 .8rem 0;
+  }
+  .container-job-description{
+    display: flex;
+    flex: 1 1;
+    gap: 2rem;
+    color: var(--blue);
+  }
+  .container-job-card-right{
+    left: 0;
+  }
+  .container-job-card-right .apply-now{
+    height: 3.2rem;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    border-width: 1px;
+    box-sizing: border-box;
+    box-shadow: 1px 2px 10px rgba(106, 97, 97, 0.304);
+    color: white;
+    background: var(--blue);
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+  .container-job-card:hover{
+    background: var(--blue);
+    color: white;
+    scale: 1.05;
+  }
+
+  .container-job-card:hover .container-job-description{
+    color: white;
+  }
+  .container-job-card:hover .apply-now{
+    background: var(--off-white);
+    color: black;
+  }
+
+  .container-pagination{
+    /* background: black; */
+    width: 100vw;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 .5rem 0;
+  }
+
+  .container-pagination .page-links{
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 1rem;
+    color: black;
+  }
+  
+  .container-pagination .page-links.active-page{
+    color: white;
+    background: var(--blue);
+    border-radius: 12px;
+    height: .4rem;
+    width: .4rem;
+  }
+
+  .container-pagination .page-links.disabled-page{
+    pointer-events: none;
+    cursor: default;
+    opacity: 50%;
+  }
+
+  </style>
+
+  <main>
+    <div class="container-search">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search anything here...">
+      </div>
+      <div class="right-box">
+        <div class="filter-box">
+          <button><i class="fa-solid fa-sliders"></i></button>
+       </div>
+       <div class="sort-by-box">
+        <label for="sort">Sort by:</label>
+         <select name="" id="sort"> 
+           <option value="Recently">Recently</option>
+           <option value="Oldest">Oldest</option>
+           <option value="a">a</option>
+           <option value="b">b</option>
+           <option value="c">c</option>
+         </select>
+       </div>
+      </div>
+    </div>
+
+    <div class="container-list-job">
+      <div class="container-job-card">
+        <div class="container-job-card-left">
+          <div class="containter-job-title">
+            <h2>Fresher/Junior Software Engineer</h2>
+          </div>
+          <div class="container-job-description">
+            <div class="calender">
+              <i class="fa-regular fa-calendar-check"></i>
+              01/01/2025 - 01/03/2025
+            </div>
+            <div class="location">
+              <i class="fa-regular fa-map"></i>
+              Ho Chi Minh City
+            </div>
+          </div>
+        </div>
+        <div class="container-job-card-right">
+          <div>
+            <a href="">
+              <button class="apply-now">Apply now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-job-card">
+        <div class="container-job-card-left">
+          <div class="containter-job-title">
+            <h2>Fresher/Junior Software Engineer</h2>
+          </div>
+          <div class="container-job-description">
+            <div class="calender">
+              <i class="fa-regular fa-calendar-check"></i>
+              01/01/2025 - 01/03/2025
+            </div>
+            <div class="location">
+              <i class="fa-regular fa-map"></i>
+              Ho Chi Minh City
+            </div>
+          </div>
+        </div>
+        <div class="container-job-card-right">
+          <div>
+            <a href="">
+              <button class="apply-now">Apply now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-job-card">
+        <div class="container-job-card-left">
+          <div class="containter-job-title">
+            <h2>Fresher/Junior Software Engineer</h2>
+          </div>
+          <div class="container-job-description">
+            <div class="calender">
+              <i class="fa-regular fa-calendar-check"></i>
+              01/01/2025 - 01/03/2025
+            </div>
+            <div class="location">
+              <i class="fa-regular fa-map"></i>
+              Ho Chi Minh City
+            </div>
+          </div>
+        </div>
+        <div class="container-job-card-right">
+          <div>
+            <a href="">
+              <button class="apply-now">Apply now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-job-card">
+        <div class="container-job-card-left">
+          <div class="containter-job-title">
+            <h2>Fresher/Junior Software Engineer</h2>
+          </div>
+          <div class="container-job-description">
+            <div class="calender">
+              <i class="fa-regular fa-calendar-check"></i>
+              01/01/2025 - 01/03/2025
+            </div>
+            <div class="location">
+              <i class="fa-regular fa-map"></i>
+              Ho Chi Minh City
+            </div>
+          </div>
+        </div>
+        <div class="container-job-card-right">
+          <div>
+            <a href="">
+              <button class="apply-now">Apply now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-job-card">
+        <div class="container-job-card-left">
+          <div class="containter-job-title">
+            <h2>Fresher/Junior Software Engineer</h2>
+          </div>
+          <div class="container-job-description">
+            <div class="calender">
+              <i class="fa-regular fa-calendar-check"></i>
+              01/01/2025 - 01/03/2025
+            </div>
+            <div class="location">
+              <i class="fa-regular fa-map"></i>
+              Ho Chi Minh City
+            </div>
+          </div>
+        </div>
+        <div class="container-job-card-right">
+          <div>
+            <a href="">
+              <button class="apply-now">Apply now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-job-card">
+        <div class="container-job-card-left">
+          <div class="containter-job-title">
+            <h2>Fresher/Junior Software Engineer</h2>
+          </div>
+          <div class="container-job-description">
+            <div class="calender">
+              <i class="fa-regular fa-calendar-check"></i>
+              01/01/2025 - 01/03/2025
+            </div>
+            <div class="location">
+              <i class="fa-regular fa-map"></i>
+              Ho Chi Minh City
+            </div>
+          </div>
+        </div>
+        <div class="container-job-card-right">
+          <div>
+            <a href="">
+              <button class="apply-now">Apply now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-job-card">
+        <div class="container-job-card-left">
+          <div class="containter-job-title">
+            <h2>Fresher/Junior Software Engineer</h2>
+          </div>
+          <div class="container-job-description">
+            <div class="calender">
+              <i class="fa-regular fa-calendar-check"></i>
+              01/01/2025 - 01/03/2025
+            </div>
+            <div class="location">
+              <i class="fa-regular fa-map"></i>
+              Ho Chi Minh City
+            </div>
+          </div>
+        </div>
+        <div class="container-job-card-right">
+          <div>
+            <a href="">
+              <button class="apply-now">Apply now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-job-card">
+        <div class="container-job-card-left">
+          <div class="containter-job-title">
+            <h2>Fresher/Junior Software Engineer</h2>
+          </div>
+          <div class="container-job-description">
+            <div class="calender">
+              <i class="fa-regular fa-calendar-check"></i>
+              01/01/2025 - 01/03/2025
+            </div>
+            <div class="location">
+              <i class="fa-regular fa-map"></i>
+              Ho Chi Minh City
+            </div>
+          </div>
+        </div>
+        <div class="container-job-card-right">
+          <div>
+            <a href="">
+              <button class="apply-now">Apply now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-job-card">
+        <div class="container-job-card-left">
+          <div class="containter-job-title">
+            <h2>Fresher/Junior Software Engineer</h2>
+          </div>
+          <div class="container-job-description">
+            <div class="calender">
+              <i class="fa-regular fa-calendar-check"></i>
+              01/01/2025 - 01/03/2025
+            </div>
+            <div class="location">
+              <i class="fa-regular fa-map"></i>
+              Ho Chi Minh City
+            </div>
+          </div>
+        </div>
+        <div class="container-job-card-right">
+          <div>
+            <a href="">
+              <button class="apply-now">Apply now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-job-card">
+        <div class="container-job-card-left">
+          <div class="containter-job-title">
+            <h2>Fresher/Junior Software Engineer</h2>
+          </div>
+          <div class="container-job-description">
+            <div class="calender">
+              <i class="fa-regular fa-calendar-check"></i>
+              01/01/2025 - 01/03/2025
+            </div>
+            <div class="location">
+              <i class="fa-regular fa-map"></i>
+              Ho Chi Minh City
+            </div>
+          </div>
+        </div>
+        <div class="container-job-card-right">
+          <div>
+            <a href="">
+              <button class="apply-now">Apply now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="container-pagination">
+      <a href="" style="gap: .3rem;" class="page-links disabled-page">
+        <i class='bx bx-left-arrow-alt'></i>
+        Previous
+      </a>
+      <a href="" class="page-links active-page">
+        1
+      </a>
+      <a href="" class="page-links">
+        2
+      </a>
+      <a href="" class="page-links">
+        3
+      </a>
+      <a href="" class="page-links">
+        ...
+      </a>
+      <a href="" class="page-links">
+        66
+      </a>
+      <a href="" class="page-links">
+        67
+      </a>
+      <a href="" style="gap: .3rem;" class="page-links">
+        Next
+        <i class='bx bx-right-arrow-alt' ></i>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+      <p>&copy; 2025 Our Website. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let currentPage = window.location.pathname.split("/").pop().replace(/\.[^/.]+$/, "");
+      // console.log(currentPage);
+
+      let button = document.querySelectorAll(".list .sub-list");
+
+      button.forEach(button => {
+        let btnPage = button.getAttribute("data-links");
+        // console.log(btnPage);
+          if ( btnPage && btnPage.includes(currentPage)) {
+
+            button.classList.add("active-list"); // Add active class
+          } else {
+            button.classList.remove("active-list"); // Ensure others don't have it
+          }
+          button.addEventListener("click", () => {
+          window.location.href = btnPage;
+        });
+      });
+    });
+  </script>
+
+  
+</body>
+</html>
