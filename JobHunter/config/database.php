@@ -2,10 +2,10 @@
   error_reporting(E_ALL);
   ini_set('display_errors', 1);
 
-  $hostname = '';
-  $username = '';
-  $password = '';
-  $database = '';
+  $hostname = 'localhost';
+  $username = 'thanh';
+  $password = 'bavui4444';
+  $database = 'GOURMET';
   $conn = mysqli_connect('', '', '', '');
 
   if (!$conn){

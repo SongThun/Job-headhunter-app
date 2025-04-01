@@ -20,7 +20,6 @@
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
-      overflow-y: hidden;
       height: 100vh;
       width: 100vw;
     }

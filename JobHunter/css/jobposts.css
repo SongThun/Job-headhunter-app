@@ -1,0 +1,120 @@
+.container-list-job {
+  /* top: 1rem; */
+  position: relative;
+  width: fit-content;
+  min-width: 85%;
+  height: auto;
+  /* height: calc(100vh - 26rem); */
+  /* max-height: calc(100vh - 26rem); */
+  min-height: calc(100vh - 19rem);
+  /* min-height: calc(100vh - 17.5rem); */
+  padding: 2rem 4rem 1rem 4rem;
+  display: grid;
+  /* grid-template-columns: repeat(2, minmax(2.3rem, 1fr)); */
+  grid-template-columns: repeat(2, max-content);
+  grid-auto-rows: min-content;
+  row-gap: 2rem; 
+  column-gap: 2rem; 
+  align-items: start;
+  justify-content: space-between;
+  margin-left: 3%;
+}
+
+.container-list-job::before {
+    content: ""; /* Creates an empty pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/job_portal_bg_.jpg") no-repeat center center;
+    background-size: cover;
+    opacity: 0.25; /* Apply opacity only to the background */
+    z-index: -1; /* Places it behind the content */
+}
+
+.container-job-card{
+  background: white;
+  display: flex;
+  width: 37rem;
+  height: 5.5rem;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 1px 2px 10px rgba(106, 97, 97, 0.804);
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.container-job-card-left{
+  flex-grow: 1;
+}
+.containter-job-title h2{
+  margin: 0;
+  padding: 0 0 .8rem 0;
+}
+.container-job-description{
+  display: flex;
+  flex: 1 1;
+  gap: 2rem;
+  color: var(--blue);
+}
+.container-job-card-right{
+  left: 0;
+}
+.container-job-card-right .apply-now{
+  height: 3.2rem;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  border-width: 1px;
+  box-sizing: border-box;
+  box-shadow: 1px 2px 10px rgba(106, 97, 97, 0.304);
+  color: white;
+  background: var(--blue);
+  padding: 0 1rem;
+  cursor: pointer;
+}
+.container-job-card:hover{
+  background: var(--blue);
+  color: white;
+  scale: 1.05;
+}
+
+.container-job-card:hover .container-job-description{
+  color: white;
+}
+.container-job-card:hover .apply-now{
+  background: var(--off-white);
+  color: black;
+}
+
+.container-pagination{
+  /* background: black; */
+  width: 100vw;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 .5rem 0;
+}
+
+.container-pagination .page-links{
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 1rem;
+  color: black;
+}
+
+.container-pagination .page-links.active-page{
+  color: white;
+  background: var(--blue);
+  border-radius: 12px;
+  height: .4rem;
+  width: .4rem;
+}
+
+.container-pagination .page-links.disabled-page{
+  pointer-events: none;
+  cursor: default;
+  opacity: 50%;
+}
