@@ -1,0 +1,141 @@
+main{
+  z-index: 1;
+}
+.outside-description{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+.description{
+  width: 80%;
+  height: 100%;
+  margin: 1rem 10rem;
+  justify-content: center;
+}
+.description .job-title{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.description .job-description-sub{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 795px) {
+  .description .job-description-sub{
+    display: flex;
+    flex-direction: column;
+  }
+}
+.description .job-description-sub .applicants,
+.description .job-description-sub .locations,
+.description .job-description-sub .level,
+.description .job-description-sub .due-date{
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  gap: 1rem;
+}
+.description .job-description-sub h3,
+.description .job-description-section-title > h3 {
+  color: var(--deep-blue);
+  margin: 0;
+}
+.description .job-description-sub p{
+  font-size: 1.1rem;
+}
+.description .job-description-section-title{
+  border-style: solid;
+  border-width: 0 0 2px 0;
+  border-color: var(--deep-blue);
+  height: 2.5rem;
+  margin-top: 1rem;
+}
+.job-description-section .file-box{
+  border-style: solid;
+  margin: 2rem 0;
+  border-radius: 10px;
+  height: 3.5rem;
+  width: 15rem;
+  border-color: grey;
+}
+.form-description{
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  
+}
+.form-row{
+  /* display: grid; */
+  /* grid-template-columns: repeat(2, 1fr); */
+  display: flex;
+  justify-content: space-between;
+}
+.form-row-half,
+.form-row-1{
+  display: flex;
+  flex-direction: column;
+  row-gap: .5rem;
+}
+
+
+
+.form-row input,
+.form-row-1 input{
+  height: 2.5rem;
+  width: 35rem;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: var(--deep-blue);
+  outline: none;
+  font-size: 1rem;
+  padding: .3rem .8rem;
+}
+.form-row-1 input{
+  width: 74rem;
+}
+
+.form-btn{
+  display: flex;
+  justify-content: flex-end;
+  height: 3rem;
+  
+}
+
+ .form-btn button{
+  margin-left: auto;
+  width: 10rem;
+  font-size: 1.3rem;
+  background: var(--blue);
+  color: white;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 1px rgba(.1,.1,.1,.1);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.form-btn button:hover{
+  scale: 1.1;
+}
+.form-row-1-file{
+  display: flex;
+  flex-direction: column;
+}
+.form-row-1-file input{
+  /* border-style: dashed; */
+  margin: .5rem 0;
+}
+
+@media (max-width: 1472px){
+  .form-row input,
+  .form-row-1 input{
+    width: 30rem;
+  }
+}

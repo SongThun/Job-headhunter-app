@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/fdab99180b.js" crossorigin="anonymous"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    :root {
+    --dark-gray: #3C3744;
+    --deep-blue: #090C9B;
+    --blue: #3D52D5;
+    --light-blue: #B4C5E4;
+    --off-white: #FBFFF1;
+    }
+    html, body{
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      /* overflow-y: hidden; */
+      height: 100vh;
+      width: 100vw;
+    }
+
+    header{
+      position: sticky;
+      top: 0;
+      margin: 0.5% 1%;
+      z-index: 1000;
+      background: white;
+    }
+    *{
+      text-decoration: none;
+    }
+    .navbar{
+      display: grid;
+      grid-template-columns: 35% 55% 30%;
+      gap: 10px;
+      padding: 0.8rem 3rem 1rem 2rem;
+      border-style: solid;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      align-items: center;
+    }
+    .navbar .logo{
+      display: block;
+    }
+    .navbar .logo a,
+    .navbar .list a{
+      color: black;
+    }
+    .navbar .list{
+      display: flex;
+      gap: 8%;
+    }
+    .navbar .sign-up-in{
+      display: flex;
+      gap: 3%;
+    }
+    .nav-btn-sign-in,
+    .sub-list{
+      border:none;
+      background: none;
+      outline: none;
+      cursor: pointer;
+    }
+    .nav-btn-sign-up{
+      height: 2.3rem;
+      width: 5rem;
+      border-radius: 10px;
+      border: none;
+      box-sizing: border-box;
+      background: var(--blue);
+      color: white;
+      cursor: pointer;
+    }
+
+    .active-list{
+      height: 2.3rem;
+      min-width: 5rem;
+      width: max-content;
+      border-radius: 10px;
+      border: none;
+      box-sizing: border-box;
+      background: var(--blue);
+      color: white;
+      cursor: pointer;
+    }
+
+    main{
+      flex: 1;
+    }
+
+    footer{
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+  </style>
+  <header>
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <div><a href="" style="cursor: default;"><h2 style="margin: 0; max-width: fit-content;cursor: pointer;">JOB</h2></a></div>
+          <div><a href="" style="cursor: default;"><h2 style="margin: 0; max-width: fit-content;cursor: pointer;">PORTAL</h2></a></div>
+        </div>
+        <div class="list">
+          <button href="" class="sub-list" data-links="">Home</button>
+          <button href="" class="sub-list" data-links="jobposts.html">Job Listing</button>
+          <button href="" class="sub-list" data-links="">Help</button>
+          <button href="" class="sub-list" data-links="">Contact</button>
+        </div>
+        <div class="sign-up-in">
+          <button class="nav-btn-sign-in">Sign in</button>
+          <button class="nav-btn-sign-up">Sign up</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <style>
+    main{
+      z-index: 1;
+    }
+    .outside-description{
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+    }
+    .description{
+      width: 80%;
+      height: 100%;
+      margin: 1rem 10rem;
+      justify-content: center;
+    }
+    .description .job-title{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+    }
+
+    .description .job-description-sub{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 795px) {
+      .description .job-description-sub{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .description .job-description-sub .applicants,
+    .description .job-description-sub .locations,
+    .description .job-description-sub .level,
+    .description .job-description-sub .due-date{
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      gap: 1rem;
+    }
+    .description .job-description-sub h3,
+    .description .job-description-section-title > h3 {
+      color: var(--deep-blue);
+      margin: 0;
+    }
+    .description .job-description-sub p{
+      font-size: 1.1rem;
+    }
+    .description .job-description-section-title{
+      border-style: solid;
+      border-width: 0 0 2px 0;
+      border-color: var(--deep-blue);
+      height: 2.5rem;
+      margin-top: 1rem;
+    }
+    .job-description-section .file-box{
+      border-style: solid;
+      margin: 2rem 0;
+      border-radius: 10px;
+      height: 3.5rem;
+      width: 15rem;
+      border-color: grey;
+    }
+    .form-description{
+      display: flex;
+      flex-direction: column;
+      row-gap: 2rem;
+      
+    }
+    .form-row{
+      /* display: grid; */
+      /* grid-template-columns: repeat(2, 1fr); */
+      display: flex;
+      justify-content: space-between;
+    }
+    .form-row-half,
+    .form-row-1{
+      display: flex;
+      flex-direction: column;
+      row-gap: .5rem;
+    }
+
+
+
+    .form-row input,
+    .form-row-1 input{
+      height: 2.5rem;
+      width: 35rem;
+      border-radius: 10px;
+      border-width: 1px;
+      border-color: var(--deep-blue);
+      outline: none;
+      font-size: 1rem;
+      padding: .3rem .8rem;
+    }
+    .form-row-1 input{
+      width: 74rem;
+    }
+
+    .form-btn{
+      display: flex;
+      justify-content: flex-end;
+      height: 3rem;
+      
+    }
+
+     .form-btn button{
+      margin-left: auto;
+      width: 10rem;
+      font-size: 1.3rem;
+      background: var(--blue);
+      color: white;
+      outline: none;
+      border: none;
+      box-sizing: border-box;
+      box-shadow: 1px 1px 1px rgba(.1,.1,.1,.1);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .form-btn button:hover{
+      scale: 1.1;
+    }
+    .form-row-1-file{
+      display: flex;
+      flex-direction: column;
+    }
+    .form-row-1-file input{
+      /* border-style: dashed; */
+      margin: .5rem 0;
+    }
+
+    @media (max-width: 1472px){
+      .form-row input,
+      .form-row-1 input{
+        width: 30rem;
+      }
+    }
+  </style>
+
+  <main>
+    <div class="outside-description">
+
+      <div class="description">
+
+        <div class="job-title">
+          <h1>Software Engineer</h1>
+        </div>
+        <div class="job-description">
+          <div class="job-description-sub">
+            <div class="applicants">
+              <h3>Applicants: </h3>
+              <p>54</p>
+            </div>
+            <div class="locations">
+              <h3>Location: </h3>
+              <p>Ho Chi Minh City</p>
+            </div>
+          </div>
+          <div class="job-description-sub">
+            <div class="level">
+              <h3>Level: </h3>
+              <p>More than 2 year of experience</p>
+            </div>
+            <div class="due-date">
+              <h3>Due date: </h3>
+              <p>01/03/2025</p>
+            </div>
+          </div>
+          <div class="job-description-section-title">
+            <h3>Description</h3>
+          </div>
+          <div class="job-description-section">
+            <div class="file-box"></div>
+            <div class="job-details">
+              <h3>Prerequisites: </h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, obcaecati molestias. Animi alias non assumenda consectetur, ipsa nesciunt fugit velit magni minima modi repudiandae voluptas ullam ex similique tempore voluptatem!</p>
+    
+              <h3>Prerequisites: </h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, obcaecati molestias. Animi alias non assumenda consectetur, ipsa nesciunt fugit velit magni minima modi repudiandae voluptas ullam ex similique tempore voluptatem!</p>
+              
+              <h3>Prerequisites: </h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, obcaecati molestias. Animi alias non assumenda consectetur, ipsa nesciunt fugit velit magni minima modi repudiandae voluptas ullam ex similique tempore voluptatem!</p>
+              
+              <h3>Prerequisites: </h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, obcaecati molestias. Animi alias non assumenda consectetur, ipsa nesciunt fugit velit magni minima modi repudiandae voluptas ullam ex similique tempore voluptatem!</p>
+              
+              <h3>Prerequisites: </h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, obcaecati molestias. Animi alias non assumenda consectetur, ipsa nesciunt fugit velit magni minima modi repudiandae voluptas ullam ex similique tempore voluptatem!</p>
+              
+              <h3>Prerequisites: </h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, obcaecati molestias. Animi alias non assumenda consectetur, ipsa nesciunt fugit velit magni minima modi repudiandae voluptas ullam ex similique tempore voluptatem!</p>
+              
+              <h3>Prerequisites: </h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, obcaecati molestias. Animi alias non assumenda consectetur, ipsa nesciunt fugit velit magni minima modi repudiandae voluptas ullam ex similique tempore voluptatem!</p>
+              
+              <h3>Prerequisites: </h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, obcaecati molestias. Animi alias non assumenda consectetur, ipsa nesciunt fugit velit magni minima modi repudiandae voluptas ullam ex similique tempore voluptatem!</p>
+              
+              <h3>Prerequisites: </h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, obcaecati molestias. Animi alias non assumenda consectetur, ipsa nesciunt fugit velit magni minima modi repudiandae voluptas ullam ex similique tempore voluptatem!</p>
+              
+            </div>
+          </div>
+        </div>
+  
+        <form action="" method="POST">
+          <div class="application-form">
+            <div class="form-title">
+              <h1 style="margin: 2rem 0; color: var(--blue);">Application form</h1>
+            </div>
+            
+            <div class="form-description">
+              <div class="form-row">
+                <div class="form-row-half">
+                  <label for="full-name"><span style="color: red; margin-right: .2rem;">*</span>Full Name</label>
+                  <input type="text" name="full-name" id="" required>
+                </div>
+                <div class="form-row-half">
+                  <label for="email-applicant"><span style="color: red; margin-right: .2rem;">*</span>Email</label>
+                  <input type="email" name="email-applicant" id="" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-row-half">
+                  <label for="phone-num"><span style="color: red; margin-right: .2rem;">*</span>Phone Number</label>
+                  <input type="tel" name="phone-num" id="" required>
+                </div>
+                <div class="form-row-half">
+                  <label for="address"><span style="color: red; margin-right: .2rem;">*</span>Address</label>
+                  <input type="text" name="address" id="" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-row-half">
+                  <label for="district"><span style="color: red; margin-right: .2rem;">*</span>District</label>
+                  <input type="text" name="district" id="" required>
+                </div>
+                <div class="form-row-half">
+                  <label for="city"><span style="color: red; margin-right: .2rem;">*</span>City</label>
+                  <input type="text" name="city" id="" required>
+                </div>
+              </div>
+              <div class="form-row-1">
+                <label for="level"><span style="color: red; margin-right: .2rem;">*</span>Level</label>
+                <input type="text" name="level" id="" required>
+              </div>
+              <div class="form-row-1">
+                <div class="form-row-1-file">
+                  <label for="resume"><span style="color: red; margin-right: .2rem;">*</span>Resume</label>
+                  <input type="file" name="resume" id="file-applicant" required>
+                </div>
+                
+                <div class="form-row-1-file">
+                  <label for="cover-letter"><span style="color: red; margin-right: .2rem;">*</span>Cover Letter</label>
+                  <input type="file" name="cover-letter" id="" required>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="form-btn"><button type="submit">Apply Now</button></div>
+          </div>
+        </form>
+  
+      </div>
+
+    </div>
+
+
+  </main>
+
+  <footer>
+      <p>&copy; 2025 Our Website. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let currentPage = window.location.pathname.split("/").pop().replace(/\.[^/.]+$/, "");
+      console.log(currentPage);
+
+      let button = document.querySelectorAll(".list .sub-list");
+
+      button.forEach(button => {
+        let btnPage = button.getAttribute("data-links");
+        console.log(btnPage);
+          if ( btnPage && (btnPage.includes(currentPage) || currentPage.includes("jobdescription"))) {
+
+            button.classList.add("active-list"); // Add active class
+          } else {
+            button.classList.remove("active-list"); // Ensure others don't have it
+          }
+          button.addEventListener("click", () => {
+          window.location.href = btnPage;
+        });
+      });
+    });
+  </script>
+
+  
+</body>
+</html>

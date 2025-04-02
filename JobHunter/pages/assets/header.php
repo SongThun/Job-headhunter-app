@@ -25,9 +25,11 @@
     }
 
     header{
+      position: sticky;
       top: 0;
       margin: 0.5% 1%;
-      position: sticky;
+      z-index: 1000;
+      background: white;
     }
     *{
       text-decoration: none;
