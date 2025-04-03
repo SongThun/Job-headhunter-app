@@ -25,6 +25,7 @@ main{
 .description .job-description-sub{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); */
 }
 @media (max-width: 795px) {
   .description .job-description-sub{
@@ -133,9 +134,77 @@ main{
   margin: .5rem 0;
 }
 
-@media (max-width: 1472px){
+
+@media (max-width: 1836px){
+  .form-row input{
+    width: 41rem;
+  }
+}
+@media (max-width: 1718px){
+  .form-row input{
+    width: 38.5rem;
+  }
+}
+@media (max-width: 1620px){
+  .form-row input{
+    width: 36rem;
+  }
+}
+@media (min-width: 1516px){
+  .form-row-1 input{
+    width: 98%;
+  }
+}
+@media (max-width: 1515px) {
   .form-row input,
   .form-row-1 input{
+    height: 2.5rem;
+    width: 35rem;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: var(--deep-blue);
+    outline: none;
+    font-size: 1rem;
+    padding: .3rem .8rem;
+}
+  .form-row-1 input{
+    width: 74rem;
+  }
+}
+@media (max-width: 1472px){
+  .form-row input{
     width: 30rem;
+  }
+  .form-row-1 input{
+    width: 97.5%;
+  }
+}
+@media (max-width: 1283px){
+  .form-row input{
+    width: 25rem;
+  }
+  .form-row-1 input{
+    width: 97.5%;
+  }
+}
+@media (max-width: 1079px){
+  .form-row input{
+    width: 20rem;
+  }
+  .form-row-1 input{
+    width: 97.5%;
+  }
+}
+@media (max-width: 884px){
+  .form-row{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.7rem;
+  }
+  .form-row input{
+    width: 97%;
+  }
+  .form-row-1 input{
+    width: 97.5%;
   }
 }
