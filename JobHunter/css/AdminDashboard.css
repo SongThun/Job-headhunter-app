@@ -1,0 +1,168 @@
+body {
+  font-family: "Poppins", sans-serif;
+  /* Thêm background image */
+  background-image: url("../images/job_portal_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: -1;
+}
+
+a {
+  text-decoration: none;
+}
+
+.view-all-button {
+  color: #3d52d5;
+  font-weight: 400;
+}
+
+/* Căn chỉnh icon mũi tên với văn bản "View all" */
+.view-all-button .bi-arrow-right {
+  vertical-align: middle;
+}
+
+.job-post,
+.application {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0.125rem 0.5rem #989696;
+  border: 1px solid #bcbcbc;
+  border-radius: 0.6rem;
+  padding: 1rem;
+  transition: transform 0.3s ease, background 0.35s ease;
+  /* Chuyển cảnh nhẹ nhàng */
+}
+
+/* Hiệu ứng hover cho job-post và application */
+.job-post:hover,
+.application:hover {
+  transform: scale(1.02);
+  backdrop-filter: blur(10px);
+  background: #3d52d5;
+  /* Nền xanh dương đậm */
+  border-radius: 0.5rem;
+}
+
+/* Đổi màu chữ thành trắng khi hover */
+.job-post:hover p,
+.application:hover p,
+.job-post:hover a,
+.application:hover a {
+  color: white;
+}
+
+.job-post img,
+.application img {
+  width: 60px;
+  height: 60px;
+  border-radius: 0.3em;
+}
+
+.job-posts {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+}
+
+/* Ẩn thanh cuộn ở phần new job post */
+.job-posts::-webkit-scrollbar {
+  display: none;
+}
+
+.job-posts {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.job-posts .job-post {
+  flex: 0 0 auto;
+  width: 360px;
+  height: 160px;
+  margin-right: 1.8rem;
+  display: inline-block;
+}
+
+/* Điều chỉnh khoảng cách giữa các phần nội dung trong cột bên phải */
+.job-posts .job-post .col {
+  padding-left: 5px;
+}
+
+/* Đảm bảo khoảng cách giữa các dòng nội dung */
+.job-posts .job-post .col .company-name {
+  margin-bottom: 0.2rem;
+}
+
+.job-posts .job-post .col .submit-day {
+  margin-bottom: 0.5rem;
+}
+
+.job-posts .job-post .col .job-position {
+  margin-bottom: 0.05rem;
+}
+
+.submit-day {
+  color: #989696;
+  font-weight: 250;
+}
+
+.due-day {
+  color: #3c3744;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.applications {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.applications .application {
+  width: 100%;
+  margin-right: 1rem;
+}
+
+/* Điều chỉnh bố cục trong application */
+.applications .application .row.align-items-start {
+  align-items: center;
+}
+
+/* Căn chỉnh hàng dưới trong application */
+.applications .application .row.align-items-space-around {
+  padding-left: 5px;
+}
+
+/* Đảm bảo các phần tử trong hàng dưới không bị co lại */
+.applications .application .row.align-items-space-around .col-auto {
+  flex: 0 0 auto;
+}
+
+/* Căn giữa Date trong hàng dưới */
+.applications .application .row.align-items-space-around .col.text-center {
+  flex: 1;
+}
+
+.view-application-link {
+  color: #3c3744;
+  font-weight: 300;
+}
+
+.title {
+  padding-bottom: 0.1rem;
+  margin-bottom: 0.1rem;
+  padding-left: 10px;
+}

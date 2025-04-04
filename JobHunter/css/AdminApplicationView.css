@@ -1,0 +1,244 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-image: url("../images/job_portal_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: -1;
+}
+
+.create-new-btn {
+  padding: 13px 20px;
+  border-radius: 0.5rem;
+  color: #fff;
+  background-color: #3d52d5;
+  transition: transform 0.3s ease;
+}
+
+.create-new-btn:hover {
+  transform: scale(1.05);
+  background-color: #3d52d5;
+  color: #fff;
+}
+
+.create-new-btn:active {
+  transform: scale(0.95);
+}
+
+.search-box {
+  align-items: center;
+  position: relative;
+}
+
+.search-box input {
+  width: 95%;
+  height: 3rem;
+  font-size: 1.2rem;
+  padding-left: 3rem;
+  border-radius: 4rem;
+  border-color: #3d52d5;
+  border-top-color: #3d52d5;
+}
+
+.search-box i {
+  font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 1rem;
+  color: #3d52d5;
+}
+
+.sort-icon {
+  font-size: 1.3rem;
+  color: #3d52d5;
+}
+
+.form-select {
+  border: none;
+  color: #3d52d5;
+  -webkit-appearance: none;
+  appearance: none;
+  width: fit-content;
+}
+
+.sidebar {
+  min-height: 100vh;
+}
+
+.list-group-item,
+.list-group-item-action {
+  border: none;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+}
+
+.list-group-item:hover,
+.list-group-item-action:active,
+.list-group-item-action:focus {
+  border-left: 3px solid #3d52d5;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+}
+
+.sidebar-badge {
+  color: #989696;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.job-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0.125rem 0.5rem #989696;
+  border: 1px solid #bcbcbc;
+  border-radius: 0.6rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.job-card:hover {
+  transform: scale(1.05);
+}
+
+.job-card h5 {
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.job-card p {
+  color: #3d52d5;
+}
+
+.job-card p i {
+  color: #3d52d5;
+}
+
+.company-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.job-status-pending,
+.job-status-approved,
+.job-status-disapproved {
+  float: right;
+  color: #fff;
+  border-radius: 0.6rem;
+  padding: 10px;
+  font-weight: 300;
+  font-size: 16px;
+  text-align: center;
+  display: inline-block;
+}
+
+.job-status-pending {
+  background-color: #ff7a7b;
+}
+
+.job-status-approved {
+  background-color: #3d52d5;
+}
+
+.job-status-disapproved {
+  background-color: #3c3744;
+}
+
+/* Style cho Pagination */
+.pagination .page-item .page-link {
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border: none;
+  color: #3d52d5;
+  border-radius: 0.6rem;
+  margin: 0 5px;
+  padding: 8px 14px;
+  transition: background-color 0.5s ease, color 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #3d52d5;
+  color: #fff;
+  border-color: #3d52d5;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: #3d52d5;
+  color: #fff;
+  border-color: #3d52d5;
+}
+
+.pagination .page-item.disabled .page-link {
+  background: transparent;
+  color: #989696;
+  border-color: #bcbcbc;
+  cursor: not-allowed;
+}
+
+.navbar-toggler {
+  border: none;
+  background: #3d52d5;
+  color: #fff;
+  padding: 8px 13px;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background: #2a3b9e;
+  transform: scale(1.1);
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(61, 82, 213, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    padding-top: 60px;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.active {
+    left: 0;
+    opacity: 1;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .search-box input {
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+}
